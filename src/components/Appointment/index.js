@@ -7,7 +7,7 @@ import Empty from './Empty';
 
 export default function Appointment(props) {
   const { time, interview } = props
-  console.log(interview)
+  // console.log(interview)
   return (
     <article className="appointment">
       <Header time={time} />

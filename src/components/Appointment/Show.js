@@ -1,5 +1,4 @@
 import React from 'react'
-// import index from '
 
 function Show(props) {
   const { student, interviewer, onEdit, onDelete } = props
