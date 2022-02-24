@@ -52,7 +52,9 @@ export default function Application(props) {
 
   useEffect(() => {
     axios.get('/api/days')
-      .then(response => setDays(response.data)
+      .then(response =>
+        // console.log(response.data),
+        setDays(response.data)
         , [])
   })
 
@@ -60,6 +62,7 @@ export default function Application(props) {
 
 
   return (
+
     <main className="layout">
       <section className="sidebar">
         <img
