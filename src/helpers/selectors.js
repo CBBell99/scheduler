@@ -6,16 +6,6 @@ export function getAppointmentsForDay(state, day) {
         dayAppointments.push(state.appointments[id])
       })
     }
-
   })
-
-  // state.days.forEach((item) => {
-  //   if (item.name === day) {
-  //     item.appointments.forEach((id) =>
-  //       dayAppointments.push(state.appointments[id])
-  //     );
-  //   }
-  // });
-
   return dayAppointments;
 }
