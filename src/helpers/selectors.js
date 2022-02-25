@@ -1,3 +1,6 @@
+
+
+
 export function getAppointmentsForDay(state, day) {
   let dayAppointments = [];
   state.days.forEach(item => {
