@@ -17,8 +17,6 @@ export function getInterview(state, interview) {
   };
   let interviewerID = interview.interviewer
   let apptInterviewer = state.interviewers[interviewerID]
-  // console.log('state!:', state.interviewers)
-  // console.log('interview!:', interview.interviewer)
   return { ...interview, interviewer: apptInterviewer }
 
 }

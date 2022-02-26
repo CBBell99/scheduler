@@ -9,6 +9,8 @@ import { getAppointmentsForDay, getInterview } from "helpers/selectors";
 
 export default function Application(props) {
 
+
+
   const [state, setState] = useState({
     day: "Monday",
     days: [],
@@ -24,7 +26,7 @@ export default function Application(props) {
         key={appointment.id}
         id={appointment.id}
         time={appointment.time}
-        interview={appointment.interview}
+        interview={interview}
 
       />
     );
