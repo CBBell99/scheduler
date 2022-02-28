@@ -1,6 +1,5 @@
 export function getAppointmentsForDay(state, day) {
   let dayAppointments = [];
-  // console.log(state.days)
   state.days.forEach(item => {
     if (item.name === day) {
       item.appointments.forEach(id => {
@@ -27,7 +26,6 @@ export function getInterviewersForDay(state, day) {
 
 
   let dayInterviewers = [];
-  console.log(state.days.interviewers)
   state.days.forEach(item => {
     if (item.name === day) {
       dayInterviewers.push(...item.interviewers)

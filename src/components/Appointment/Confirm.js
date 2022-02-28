@@ -3,7 +3,7 @@ import Button from 'components/Button'
 
 function Confirm(props) {
 
-  const { message, onConfirm, onCancel } = props;
+  const { message, onConfirm, onCancel, bookInterview } = props;
 
   return (
     <main className="appointment__card appointment__card--confirm">
