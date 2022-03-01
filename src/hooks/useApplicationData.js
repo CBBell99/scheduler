@@ -7,13 +7,27 @@ function useApplicationData() {
   const [state, setState] = useState({
     day: "Monday",
     days: [],
-    appointments: {}
+    appointments: {},
+    interviewers: {}
   });
+
 
   const setDay = day => setState({ ...state, day });
 
+  function updateSpots(id, increment = true) {
+    let day = state.days.filter((day) =>
+      day.appointments.includes(id)
+    )[0]
+    increment ? (day.spots += 1) : (day.spots -= 1)
+    const days = [...state.days]
+    const dayIndex = day.id - 1
+    days[dayIndex] = day
+
+    return days
+  }
+
+
   function bookInterview(id, interview) {
-    // console.log(id, interview)
 
     const appointment = {
       ...state.appointments[id],
@@ -25,10 +39,12 @@ function useApplicationData() {
       [id]: appointment
     };
 
-
     return axios.put(`/api/appointments/${id}`, { interview: { ...interview } })
-      // return axios.put(`/api/appointments/${id}`, interview)
-      .then(setState({ ...state, appointments }))
+
+      .then(() => {
+        const days = updateSpots(id, false)
+        setState({ ...state, appointments, days })
+      })
   }
 
   function cancelInterview(id) {
@@ -42,10 +58,13 @@ function useApplicationData() {
       ...state.appointments,
       [id]: appointment
     };
+
     return axios.delete(`/api/appointments/${id}`, { interview: id })
       .then(() => {
-        setState({ ...state, appointments });
-      });
+        const days = updateSpots(id, true)
+        setState({ ...state, appointments, days })
+      })
+
   }
   useEffect(() => {
     Promise.all([
@@ -58,6 +77,7 @@ function useApplicationData() {
       setState(prev => ({ ...prev, days: days.data, appointments: appointments.data, interviewers: interviewers.data }));
     })
   }, [])
+
 
   return { state, setDay, bookInterview, cancelInterview }
 }
