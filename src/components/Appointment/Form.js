@@ -22,7 +22,8 @@ export default function Form(props) {
 
   function validate() {
     if (!interviewer) {
-      setError("Please select an interviewer")
+      setError("Please select an interviewer");
+      return;
     }
     if (name === "") {
       setError("Student name cannot be blank");
@@ -46,8 +47,12 @@ export default function Form(props) {
             data-testid="student-name-input"
           />
         </form>
-
-        <section className="appoinment__validation">{error}</section>
+        {!name && (
+          <section className="appoinment__validation">{error}</section>
+        )}
+        {!interviewer && (
+          <section className="appoinment__validation">{error}</section>
+        )}
         <InterviewerList
           interviewers={props.interviewers}
           value={interviewer}
@@ -55,13 +60,11 @@ export default function Form(props) {
         />
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
-          {/* {!interviewer && <Button onClick={'pl'}confirm>Save</Button>} */}
-          {/* {interviewer &&  */}
-          <Button onClick={validate} confirm>
-            Save
-          </Button>}
+          <Button onClick={validate} confirm>Save</Button>
+
+
         </section>
       </section>
-    </main>
+    </main >
   )
 }
