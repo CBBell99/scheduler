@@ -21,12 +21,12 @@ export default function Form(props) {
   }
 
   function validate() {
-    if (!interviewer) {
-      setError("Please select an interviewer");
-      return;
-    }
     if (name === "") {
       setError("Student name cannot be blank");
+      return;
+    }
+    if (!interviewer) {
+      setError("Please select an interviewer");
       return;
     }
     setError("");
@@ -49,8 +49,7 @@ export default function Form(props) {
         </form>
         {!name && (
           <section className="appoinment__validation">{error}</section>
-        )}
-        {!interviewer && (
+        ) || !interviewer && (
           <section className="appoinment__validation">{error}</section>
         )}
         <InterviewerList
