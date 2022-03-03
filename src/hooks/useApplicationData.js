@@ -15,7 +15,7 @@ function useApplicationData() {
   const setDay = day => setState({ ...state, day });
 
 
-
+  //  live updates spots available for each day
   const updateSpots = (state, day, appointmentsObj) => {
 
     const appointmentIdForDay = state.days.findIndex((item) => {
@@ -38,6 +38,7 @@ function useApplicationData() {
     return newDaysArr
   };
 
+  // books interview in api
   function bookInterview(id, interview) {
 
     const appointment = {
@@ -58,6 +59,7 @@ function useApplicationData() {
       })
   }
 
+  //deletes interview from api
   function cancelInterview(id) {
 
     const appointment = {
@@ -73,11 +75,12 @@ function useApplicationData() {
 
     return axios.delete(`/api/appointments/${id}`, { interview: id })
       .then(() => {
-        // const days = updateSpots(id, true)
         setState({ ...state, appointments, days })
       })
 
   }
+
+  //request from api for data
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),

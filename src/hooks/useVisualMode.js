@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+// custom hook, switches between modes in the Appointment component
 export default function useVisualMode(initial) {
 
   const [mode, setMode] = useState(initial);
