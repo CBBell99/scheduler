@@ -5,7 +5,7 @@ import Button from "components/Button";
 
 export default function Form(props) {
 
-  const [name, setName] = useState(props.name || "")
+  const [name, setName] = useState(props.name || "");
   const [interviewer, setInterviewer] = useState(props.interviewer || null)
   const [error, setError] = useState("");
 
@@ -47,9 +47,8 @@ export default function Form(props) {
             data-testid="student-name-input"
           />
         </form>
-        {!name && (
-          <section className="appoinment__validation">{error}</section>
-        ) || !interviewer && (
+
+        {!interviewer && (
           <section className="appoinment__validation">{error}</section>
         )}
         <InterviewerList
