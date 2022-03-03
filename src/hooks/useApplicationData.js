@@ -14,17 +14,8 @@ function useApplicationData() {
 
   const setDay = day => setState({ ...state, day });
 
-  // function updateSpots(id, increment = true) {
-  //   let day = state.days.filter((day) =>
-  //     day.appointments.includes(id)
-  //   )[0]
-  //   increment ? (day.spots += 1) : (day.spots -= 1)
-  //   const days = [...state.days]
-  //   const dayIndex = day.id - 1
-  //   days[dayIndex] = day
 
-  //   return days
-  // }
+
   const updateSpots = (state, day, appointmentsObj) => {
 
     const appointmentIdForDay = state.days.findIndex((item) => {
@@ -60,11 +51,9 @@ function useApplicationData() {
     };
     const days = updateSpots(state, state.day, appointments)
 
-    // const days = updateSpots(id, false)
     return axios.put(`/api/appointments/${id}`, { interview: { ...interview } })
 
       .then(() => {
-        // const days = updateSpots(id, false)
         setState({ ...state, appointments, days })
       })
   }

@@ -1,8 +1,5 @@
 
 describe("Navigation", () => {
-  // beforeEach(()=>{
-
-  // })
 
   it("should visit root", () => {
     cy.visit("/");
