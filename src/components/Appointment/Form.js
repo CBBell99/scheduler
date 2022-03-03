@@ -47,7 +47,6 @@ export default function Form(props) {
             data-testid="student-name-input"
           />
         </form>
-
         <section className="appointment__validation">{error}</section>
 
         <InterviewerList
@@ -55,12 +54,15 @@ export default function Form(props) {
           value={interviewer}
           onChange={setInterviewer}
         />
+      </section>
+      <section className="appointment__card-right">
+
         <section className="appointment__actions">
           <Button danger onClick={cancel}>Cancel</Button>
           <Button onClick={validate} confirm>Save</Button>
-
-
         </section>
+
+
       </section>
     </main >
   )

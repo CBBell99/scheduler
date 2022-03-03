@@ -12,8 +12,8 @@ function useApplicationData() {
     interviewers: {}
   });
 
-
   const setDay = day => setState({ ...state, day });
+
   //  live updates spots available for each day
   const updateSpots = (state, day, appointmentsObj) => {
 
@@ -80,8 +80,6 @@ function useApplicationData() {
   }
 
   //request from api for data
-
-
   useEffect(() => {
     Promise.all([
       axios.get('/api/days'),

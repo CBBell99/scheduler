@@ -1,14 +1,13 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from "react";
+import "components/Button.scss";
+import classNames from "classnames";
 
-import 'components/Button.scss';
-
-// different button styles
 
 export default function Button(props) {
-   const buttonClass = classNames('button', {
-      'button--confirm': props.confirm,
-      'button--danger': props.danger,
+
+   let buttonClass = classNames("button", {
+      "button--confirm": props.confirm,
+      "button--danger": props.danger
    });
 
    return (
@@ -23,3 +22,4 @@ export default function Button(props) {
       </>
    );
 }
+
