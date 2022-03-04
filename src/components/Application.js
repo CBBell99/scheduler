@@ -20,6 +20,7 @@ export default function Application(props) {
 
   const interviewersForDay = getInterviewersForDay(state, state.day);
 
+  //retrieve and populate the interview schedule for the day
   const schedule = dailyAppointments.map((appointment) => {
     const interview = getInterview(state, appointment.interview)
     return (

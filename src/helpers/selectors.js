@@ -1,6 +1,6 @@
 
 
-
+//retrieve appointments for selected day
 export function getAppointmentsForDay(state, day) {
   let dayAppointments = [];
   state.days.forEach(item => {
@@ -14,7 +14,7 @@ export function getAppointmentsForDay(state, day) {
 }
 
 
-
+//retrieve interview for selected day
 export function getInterview(state, interview) {
   if (!interview) {
     return null
@@ -25,6 +25,7 @@ export function getInterview(state, interview) {
 
 }
 
+//get available interviewers for the day
 export function getInterviewersForDay(state, day) {
 
 

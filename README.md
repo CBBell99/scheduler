@@ -24,7 +24,6 @@ Install dependencies with `npm install`.
 ## Scheduler Api
 
 You will need this in order to run the scheduler app and run it concurrently
-
 https://github.com/CBBell99/scheduler-api
 
 ## Running Webpack Development Server

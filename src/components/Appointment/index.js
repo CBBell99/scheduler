@@ -23,10 +23,14 @@ const ERROR_DELETE = "ERROR_DELETE";
 export default function Appointment(props) {
   const { id, time, interview, interviewers, bookInterview, cancelInterview } = props;
 
+
+  //switch mode between the various modes utilizing the useVisualMode custom hook
   const { mode, transition, back } = useVisualMode(
     props.interview ? SHOW : EMPTY
   );
 
+
+  //save appointment when booking or editing
   function save(name, interviewer) {
     const interview = {
       student: name,
@@ -39,6 +43,7 @@ export default function Appointment(props) {
       .catch(() => transition(ERROR_SAVE, true))
   };
 
+  // delete booked appointment
   function deleteAppt(id) {
     transition(DELETING, true)
     cancelInterview(id)
